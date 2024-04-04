@@ -1,7 +1,7 @@
 {
-  "name": "@icebreakers/foo",
-  "version": "0.1.0",
-  "description": "my foo your bar pkg",
+  "name": "vue-sticky-next",
+  "version": "0.0.0",
+  "description": "vue-sticky-next",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
@@ -25,5 +25,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
-  ]
+  ],
+  "devDependencies": {
+    "vue": "^3.4.21"
+  }
 }
