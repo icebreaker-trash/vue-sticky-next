@@ -1167,6 +1167,10 @@ vite@^5.2.0:
   optionalDependencies:
     fsevents "~2.3.3"
 
+"vue-sticky-next@link:../../packages/directive":
+  version "0.0.0"
+  uid ""
+
 vue-template-compiler@^2.7.14:
   version "2.7.16"
   resolved "https://registry.npmmirror.com/vue-template-compiler/-/vue-template-compiler-2.7.16.tgz#c81b2d47753264c77ac03b9966a46637482bb03b"

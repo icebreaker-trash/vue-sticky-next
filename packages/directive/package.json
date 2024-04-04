@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "vue-sticky-next",
   "scripts": {
+    "dev": "unbuild --sourcemap",
     "build": "unbuild",
     "test": "vitest run",
     "test:dev": "vitest",
