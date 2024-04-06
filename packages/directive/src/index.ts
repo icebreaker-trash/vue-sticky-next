@@ -1,20 +1,20 @@
-import type { Directive, App, DirectiveBinding, VNode } from 'vue'
+import type { Directive, App, DirectiveBinding, VNode, Plugin } from 'vue'
 import type { UserDefineOptions } from './options'
 import { getHooks, getVm, isVue3 } from './utils'
 import { Sticky } from './sticky'
 // import { namespace } from './constants'
-interface VStickyInstallObject {
-  install: (app: any, globalUserOptions: Partial<UserDefineOptions>) => void
+export interface VStickyInstallObject {
+  install: (app: any, globalUserOptions?: Partial<UserDefineOptions>) => void
   installed: boolean
 }
 
-interface DirectiveList {
+export interface DirectiveList {
   vSticky: Directive
 }
 
 const weakmap = new WeakMap()
 
-const createDirective = (globalUserOptions: Partial<UserDefineOptions> = {}, app: App | 'vue2' | 'vue3' = 'vue3'): DirectiveList => {
+export const createDirective = (globalUserOptions: Partial<UserDefineOptions> = {}, app: App | 'vue2' | 'vue3' = 'vue3'): DirectiveList => {
   let vue3: boolean
 
   if (app === 'vue2') vue3 = false
@@ -59,19 +59,14 @@ const createDirective = (globalUserOptions: Partial<UserDefineOptions> = {}, app
   }
 }
 
-const vStickyPlugin: VStickyInstallObject & {
-  createDirective: typeof createDirective
-} = {
+export const vStickyPlugin: VStickyInstallObject = {
   install(app: App, globalUserOptions = {}) {
     if (this.installed) return
     this.installed = true
 
     const { vSticky } = createDirective(globalUserOptions, app)
 
-    app.directive('v-sticky', vSticky)
+    app.directive('sticky', vSticky)
   },
-  installed: false,
-  createDirective
+  installed: false
 }
-
-export default vStickyPlugin

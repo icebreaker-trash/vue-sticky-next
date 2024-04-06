@@ -17,9 +17,9 @@
     "postcss": "^8.4.38",
     "sass": "^1.74.1",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.4",
     "vite": "^5.2.0",
-    "vue-tsc": "^2.0.6",
-    "vue-sticky-next":"link:../../packages/directive"
+    "vue-sticky-next": "link:../../packages/directive",
+    "vue-tsc": "^2.0.10"
   }
 }
