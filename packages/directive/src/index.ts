@@ -1,8 +1,9 @@
-import type { Directive, App, DirectiveBinding, VNode, Plugin } from 'vue'
+import type { Directive, App, DirectiveBinding, VNode } from 'vue'
+import defu from 'defu'
 import type { UserDefineOptions } from './options'
 import { getHooks, getVm, isVue3 } from './utils'
 import { Sticky } from './sticky'
-// import { namespace } from './constants'
+
 export interface VStickyInstallObject {
   install: (app: any, globalUserOptions?: Partial<UserDefineOptions>) => void
   installed: boolean
@@ -26,8 +27,7 @@ export const createDirective = (globalUserOptions: Partial<UserDefineOptions> = 
   const stickyDirective: Directive<HTMLElement, UserDefineOptions> = {
     [hooks.mounted](el: HTMLElement, binding: DirectiveBinding<UserDefineOptions>, vnode: VNode) {
       if (binding.value === undefined || binding.value) {
-        const sticky = new Sticky(el, getVm(binding, vnode, vue3), binding.value)
-
+        const sticky = new Sticky(el, getVm(binding, vnode, vue3), defu(globalUserOptions, binding.value))
         weakmap.set(el, sticky)
         sticky.doBind()
       }
@@ -43,10 +43,10 @@ export const createDirective = (globalUserOptions: Partial<UserDefineOptions> = 
       let sticky = weakmap.get(el)
       if (binding.value === undefined || binding.value) {
         if (!sticky) {
-          sticky = new Sticky(el, getVm(binding, vnode, vue3), binding.value)
+          sticky = new Sticky(el, getVm(binding, vnode, vue3), defu(globalUserOptions, binding.value))
           weakmap.set(el, sticky)
+          sticky.doBind()
         }
-        sticky.doBind()
       } else if (sticky) {
         sticky.doUnbind()
         weakmap.delete(el)

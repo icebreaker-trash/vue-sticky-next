@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-    <HelloWorld msg="Vite + Vue" />
+  <div class="container mx-auto pt-10">
+    <div sticky-container class="border-2 h-[200vh] relative">
+
+      <div v-sticky="{ offset: { top: 0 } }" class="h-[100px] w-[100px] bg-red-300"></div>
+    </div>
   </div>
 </template>
 

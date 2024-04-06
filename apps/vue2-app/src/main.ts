@@ -9,3 +9,6 @@ new Vue({
   // router,
   render: (h) => h(App)
 })
+// import {createDirective} from 'vue-sticky-next'
+
+// const { vSticky } = createDirective({},'vue3')

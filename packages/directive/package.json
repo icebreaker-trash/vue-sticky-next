@@ -1,7 +1,7 @@
 {
   "name": "vue-sticky-next",
-  "version": "0.0.0",
-  "description": "vue-sticky-next",
+  "version": "1.0.0",
+  "description": "A powerful vue directive make element sticky.",
   "scripts": {
     "dev": "unbuild --sourcemap",
     "build": "unbuild",
@@ -9,7 +9,14 @@
     "test:dev": "vitest",
     "release": "pnpm publish"
   },
-  "keywords": [],
+  "keywords": [
+    "vue",
+    "sticky",
+    "vue2",
+    "vue3",
+    "plugin",
+    "directive"
+  ],
   "author": "",
   "license": "ISC",
   "sideEffects": false,
@@ -28,6 +35,7 @@
     "dist"
   ],
   "devDependencies": {
+    "defu": "^6.1.4",
     "vue": "^3.4.21"
   }
 }
